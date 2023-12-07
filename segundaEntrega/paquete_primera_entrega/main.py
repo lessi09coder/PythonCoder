@@ -1,75 +1,25 @@
-import json
+from cliente import Cliente, Producto
 
-#carga de datos de usuarios con permanencia:
-def cargar_usuarios():
-    try:
-        with open("usuarios.txt", "r") as file:
-            usuarios = json.load(file)
-    except FileNotFoundError:
-        usuarios = {}
-    return usuarios
+# Crear instancias de productos
+producto1 = Producto("Pava Electrica", 3500)
+producto2 = Producto("Ventilador", 4000)
+producto3 = Producto("Motoguadana", 50000)
 
-def guardar_usuarios(usuarios):
-    with open("usuarios.txt", "w") as file:
-        json.dump(usuarios, file)
+# Obtener datos del clientes
+nombre = input("Ingrese el nombre del cliente: ")
+email = input("Ingrese el email del cliente: ")
+direccion = input("Ingrese la dirección del cliente: ")
 
-#registro de usuarios:
-def registrar_usuario():
-    usuarios = cargar_usuarios()
+# Crear instancia de cliente con los datos ingresados
+cliente1 = Cliente(nombre, email, direccion)
 
-    while True:
-        nombre_usuario = input("Ingrese un nombre de usuario: ")
-        if nombre_usuario in usuarios:
-            print("El nombre de usuario ya está en uso. Intente con otro.")
-        else:
-            break
+# Agregar productos al carrito del cliente
+cliente1.agregar_al_carrito(producto1)
+cliente1.agregar_al_carrito(producto2)
+cliente1.agregar_al_carrito(producto3)
 
-    contrasena = input("Ingrese una contraseña: ")
-    usuarios[nombre_usuario] = contrasena
-    guardar_usuarios(usuarios)
-    print("¡Registro exitoso!")
+# Realizar compra
+cliente1.realizar_compra()
 
-#Login de usuarios
-def iniciar_sesion():
-    usuarios = cargar_usuarios()
-
-    intentos = 3
-
-    while intentos > 0:
-        nombre_usuario = input("Ingrese su nombre de usuario: ")
-        contrasena = input("Ingrese su contraseña: ")
-
-        if nombre_usuario in usuarios and usuarios[nombre_usuario] == contrasena:
-            print("Inicio de sesión exitoso. ¡Bienvenido, {}!".format(nombre_usuario))
-            break
-        else:
-            intentos -= 1
-            print("Nombre de usuario o contraseña incorrectos. Intentos restantes: {}".format(intentos))
-
-    if intentos == 0:
-        print("Se agotaron los intentos. Cierre del programa.")
-
-def leer_informacion():
-    try:
-        with open("usuarios.txt", "r") as file:
-            usuarios = json.load(file)
-            print(usuarios)
-    except FileNotFoundError:
-        usuarios = {}
-    return usuarios
-
-if __name__ == "__main__":
-    print("1. Registrar usuario")
-    print("2. Iniciar sesion")
-    print("3. Ver usuarios")
-
-    opcion = input("Seleccione una opcion (1 , 2 o 3): ")
-
-    if opcion == "1":
-        registrar_usuario()
-    elif opcion == "2":
-        iniciar_sesion()
-    elif opcion == "3":
-        leer_informacion()
-    else:
-        print("Opción no válida. Por favor, seleccione 1 , 2 o 3.")
+#Imprimimos al CLIENTE para ver sus datos:
+print(cliente1)
