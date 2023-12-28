@@ -1,0 +1,18 @@
+
+{% block content %}
+
+<h1>Resultados de la Búsqueda</h1>
+{% if productos %}
+    <ul>
+        {% for producto in productos %}
+            <li>{{ producto.nombre }} - Precio: {{ producto.precio }} - Cantidad: {{ producto.cantidad }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No se encontraron productos.</p>
+{% endif %}
+
+
+{% endblock %}
+
+
