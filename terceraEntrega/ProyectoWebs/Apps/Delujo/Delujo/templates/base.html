@@ -1,0 +1,33 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DELUJO</title>
+</head>
+<body>
+    <header>
+        <h1>Esto es Delujo</h1>
+        <nav>
+            <!-- Aquí coloca tu menú de navegación -->
+            <ul>
+                <li><a href="/admin/">Admin</a></li>
+                <li><a href="/index/">Index</a></li>
+                <li><a href="/login/">Login</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- El contenido específico de cada página se colocará aquí -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- Aquí el contenido del footer -->
+        <p>ESTO ES EL FOOTER 2023 Mi Sitio Web</p>
+    </footer>
+</body>
+</html>
