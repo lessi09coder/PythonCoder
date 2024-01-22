@@ -1,0 +1,51 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AlexBlog</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}" />
+</head>
+
+<body>
+    <header>
+        <h1>EL MEJOR BLOG!</h1>
+        <nav class="navegador">
+            <!-- Aquí coloca tu menú de navegación -->
+            <ul>
+                <li><a href="/admin/">Admin</a></li>
+                <li><a href="/">Index</a></li>               
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- El contenido específico de cada página se colocará aquí -->
+        {% endblock %}
+
+        <h1>ARTICULOS</h1>
+        <div class="articulos">
+            {% for elemento in articulos %}
+            <article class="articulo">
+                <h2>{{ elemento.titulo }}</h2>
+                <h3>{{ elemento.subtitulo }}</h3>
+                <p>{{ elemento.cuerpo }}</p>
+                <img src="{{ elemento.imagen }}" alt="">
+                <h3>Autor: {{ elemento.autor}} </h3>
+                <h4>Creado:  {{ elemento.fecha}}</h4>
+            </article>
+            {% endfor %}
+        </div>
+    </main>
+
+    <footer>
+        <!-- Aquí el contenido del footer -->
+        <p>{{elemento.autor}} </p>
+    </footer>
+</body>
+
+</html>
