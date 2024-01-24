@@ -5,7 +5,7 @@ from django.utils.timezone import now
 class Entrada(models.Model):
     titulo = models.CharField(max_length=50)
     subtitulo = models.CharField(max_length=50)
-    cuerpo = models.TextField(max_length=400, default='algo')
+    cuerpo = models.TextField(max_length=400)
     imagen = models.URLField()
     autor = models.CharField(max_length=50)
     fecha = models.DateTimeField(default=now, editable=False)

@@ -16,7 +16,10 @@
             <!-- Aquí coloca tu menú de navegación -->
             <ul>
                 <li><a href="/admin/">Admin</a></li>
-                <li><a href="/">Index</a></li>               
+                <li><a href="/">Index</a></li>
+                <li><a href="/registro/">Registro</a></li>
+                <li><a href="/">Login</a></li>
+                <li><a href="/about/">Sobre mi</a></li>
 
             </ul>
         </nav>
@@ -27,24 +30,37 @@
         <!-- El contenido específico de cada página se colocará aquí -->
         {% endblock %}
 
-        <h1>ARTICULOS</h1>
         <div class="articulos">
+
+            {% if login %}
+
             {% for elemento in articulos %}
+
             <article class="articulo">
                 <h2>{{ elemento.titulo }}</h2>
                 <h3>{{ elemento.subtitulo }}</h3>
                 <p>{{ elemento.cuerpo }}</p>
                 <img src="{{ elemento.imagen }}" alt="">
                 <h3>Autor: {{ elemento.autor}} </h3>
-                <h4>Creado:  {{ elemento.fecha}}</h4>
+                <h4>Creado: {{ elemento.fecha}}</h4>
             </article>
+
             {% endfor %}
+
+            {% else %}
+            <h2>no te has logueado!</h2>
+            
+            {% endif %}
+           
+            
+
         </div>
     </main>
 
     <footer>
         <!-- Aquí el contenido del footer -->
-        <p>{{elemento.autor}} </p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita explicabo vero corporis magnam excepturi
+        ipsam, consequatur asperiores, aspernatur quae dolores delectus? Nostrum architecto aspernatur hic.
     </footer>
 </body>
 

@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="content_form">
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <p> Usuario: <input type="text" name="username"></p>
+        <p> Contraseña: <input type="password" name="password1"></p>
+        <p> Repetir Contraseña: <input type="password" name="password2"></p>
+
+
+        <input type="submit" value="Registrate">
+        
+        {% if data %}
+        <h3> {{ data }} </h3>
+        {% endif %}
+    </form>
+</div>
+{% endblock %}

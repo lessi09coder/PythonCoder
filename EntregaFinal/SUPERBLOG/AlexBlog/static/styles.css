@@ -8,16 +8,20 @@
 
 /* Paleta de colores: */
 .paleta {
-    color: #001E6C;
-    color: #035397;
-    color: #5089C6;
-    color: #FFAA4C;
+    color: #5F6F52;
+    color: #A9B388;
+    color: #FEFAE0;
+    color: #B99470;
 }
 
 
 body {
-    background-color: #001E6C;
+    background-color:#5F6F52 ;
     padding: 0 25px;
+}
+
+.navegador {
+    background: #A9B388
 }
 
 .navegador ul a {
@@ -32,11 +36,10 @@ body {
 .articulo {
     margin: 5px;
     padding: 15px;
-    background-color: #FFAA4C;
+    background-color: #B99470;
     border-radius: 10px;
     box-shadow: 2px 2px 2px black;
     width: 30%;
-
 }
 
 .articulo img {
@@ -44,4 +47,19 @@ body {
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
+}
+
+.content_form {
+    color: black;
+    margin: 5px;
+    padding: 15px;
+    background-color: #B99470;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px black;
+    width: 30%;
+}
+
+.content_form form input {
+    color: black;
+    margin: 10px;
 }
