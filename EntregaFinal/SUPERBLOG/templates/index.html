@@ -17,10 +17,13 @@
             <ul>
                 <li><a href="/admin/">Admin</a></li>
                 <li><a href="/">Index</a></li>
-                <li><a href="/registro/">Registro</a></li>
-                <li><a href="/">Login</a></li>
+                <li><a href="/registro/">Registro</a></li>                               
                 <li><a href="/about/">Sobre mi</a></li>
-
+                {% if user.is_authenticated%}
+                <li><a href="/logout/">Logout</a></li>
+                {% else %}
+                <li><a href="/login/">Login</a></li> 
+                {% endif%}
             </ul>
         </nav>
     </header>
@@ -30,9 +33,8 @@
         <!-- El contenido específico de cada página se colocará aquí -->
         {% endblock %}
 
+        {% if user.is_authenticated %}
         <div class="articulos">
-
-            {% if login %}
 
             {% for elemento in articulos %}
 
@@ -47,14 +49,19 @@
 
             {% endfor %}
 
-            {% else %}
-            <h2>no te has logueado!</h2>
-            
-            {% endif %}
-           
-            
-
         </div>
+        {% else %}
+
+        <h2>no te has logueado!</h2>
+
+        {% endif %}
+
+        <br>
+
+        {% if data %}
+        <h3> {{ data }} </h3>
+        {% endif %}
+
     </main>
 
     <footer>
