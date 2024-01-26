@@ -1,19 +1,19 @@
 {% extends 'index.html' %}
 {% block content %}
 <div class="content_form">
-    <form action="" method="POST">
+    <form action="" method="post">
         {% csrf_token %}
+   
+        {{form.as_table}}
 
-        <p> Usuario: <input type="text" name="username"></p>
-        <p> Contraseña: <input type="password" name="password1"></p>
-        <p> Repetir Contraseña: <input type="password" name="password2"></p>
-
-
+        <p>Ya tienes cuenta? Logeate <a href="/login"> aqui! </a></p>
         <input type="submit" value="Registrate">
         
         {% if data %}
         <h3> {{ data }} </h3>
         {% endif %}
+
+        
     </form>
 </div>
 {% endblock %}
