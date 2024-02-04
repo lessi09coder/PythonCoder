@@ -19,11 +19,7 @@ class FormularioRegistroUsuario(forms.ModelForm):
         if cd['password1'] != cd['password2']:
             return forms.ValidationError('Las contraseñas no son iguales.')
         return cd['password2']
-        
-class LoginUsuarios(forms.Form):
-    username = forms.CharField()
-    password1 = forms.CharField(widget=forms.PasswordInput)
-    
+     
     
 class AgregarArticulos(forms.ModelForm):
     class Meta:

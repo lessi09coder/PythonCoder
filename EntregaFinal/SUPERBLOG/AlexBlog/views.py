@@ -1,19 +1,29 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from django.contrib import messages
+
+from django.views.generic import TemplateView
+from django.views.generic.detail import  DetailView
+from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView
+from django.urls import reverse_lazy
+
 from AlexBlog.models import Entrada
-from AlexBlog.forms import FormularioRegistroUsuario, LoginUsuarios, AgregarArticulos
+from AlexBlog.forms import FormularioRegistroUsuario, AgregarArticulos
+
+
 from django.contrib.auth import authenticate, login, logout
 
 
 # Create your views here.
-
+class Home(TemplateView):
+    template_name = 'index.html'
 
 # @login_required
-def home(request):
+""" def home(request):
     articulos = Entrada.objects.all()
     return render(request, "index.html", {"articulos": articulos})
-    
+     """
 def registro(request):
     if request.method == "POST":
         """ existeUser = User(username=request.POST['username'])
@@ -60,34 +70,25 @@ def registro(request):
     return HttpResponse("hola")
  """
 
-
-def loginUser(request):
-    if request.method == "POST":
-        form = LoginUsuarios(request.POST)
-        if form.is_valid():
-            cd = form.cleaned_data           
-            user = authenticate(username=cd["username"], password=cd["password1"])
-            print(f" autenticacion del usuario {user}")
-            if user is not None:
-                if user.is_active:
-                    login(request, user)
-                    return redirect ("/")
-                   # ACOMODAR ESTOD DE ABAJO
-                else:
-                    return HttpResponse("usuario no activo")
-
-            else:
-                return HttpResponse("usuario es un NONE")
-
-    else:
-        form = LoginUsuarios()
-        return render(request, "login.html", {"form": form})
+class LoginUser(LoginView):
+    template_name = 'login.html'    
+    fields = '__all__'
+    #redirect_autheticated_user = True
+    #success_url = reverse_lazy('home')   
+    
+    def get_success_url(self):
+        return reverse_lazy('home')
 
 
-def logoutUser(request):
+class LogoutUser(LogoutView):
+    def get_success_url(self):
+        return reverse_lazy('login')
+    
+    
+""" def logoutUser(request):
     logout(request)
     return redirect("login")
-
+ """
 # @login_required
 def agregarArticulos(request):
     # articulos = Entrada.objects.all()
