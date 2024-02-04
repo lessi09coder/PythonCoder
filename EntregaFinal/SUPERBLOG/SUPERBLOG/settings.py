@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'AlexBlog',    
 ]
 
+#AUTH_USER_MODEL = 'AlexBlog.Usuario'
+#ACCOUNT_SIGNUP_FORM_CLASS = 'AlexBlog.Usuario'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

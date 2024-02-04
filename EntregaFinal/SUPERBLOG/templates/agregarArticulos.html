@@ -6,8 +6,8 @@
    
         {{form.as_table}}
 
-        <p>Ya tienes cuenta? Logeate <a href="/login"> aqui! </a></p>
-        <input type="submit" value="Registrate">
+        
+        <input type="submit" value="Agregar">
         
         {% if data %}
         <h3> {{ data }} </h3>
@@ -17,7 +17,6 @@
     </form>
 </div>
 
-    {% if error %}
-    <h2> {{error}} </h2>
-    {% endif %}
+
+
 {% endblock %}
