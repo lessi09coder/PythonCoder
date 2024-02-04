@@ -1,13 +1,13 @@
 {% extends 'index.html' %}
 {% block content %}
-<div class="content_form">
-    <form action="" method="post">
+<div class="row">
+    <form action="" method="post" class="card card-body text-center">
         {% csrf_token %}
    
         {{form.as_table}}
 
         
-        <input type="submit" value="Agregar">
+        <input type="submit" value="Agregar" class="form-control btn btn-primary">
         
         {% if data %}
         <h3> {{ data }} </h3>
@@ -16,7 +16,6 @@
         
     </form>
 </div>
-
 
 
 {% endblock %}

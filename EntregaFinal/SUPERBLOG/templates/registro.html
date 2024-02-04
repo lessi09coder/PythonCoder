@@ -1,20 +1,23 @@
 {% extends 'index.html' %}
 {% block content %}
-<div class="content_form">
-    <form action="" method="post">
-        {% csrf_token %}
-   
-        {{form.as_table}}
-
-        <p>Ya tienes cuenta? Logeate <a href="/login"> aqui! </a></p>
-        <input type="submit" value="Registrate">
-        
-        {% if data %}
-        <h3> {{ data }} </h3>
-        {% endif %}
-
-        
-    </form>
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <form action="" method="post" class="card card-body text-center">
+            <h1>Registrate!</h1>
+            {% csrf_token %}
+       
+            {{form.as_table}}
+    
+            <p>Ya tienes cuenta? Logeate <a href="/login"> aqui! </a></p>
+            <input type="submit" value="Registrate" class="form-control btn btn-primary">
+            
+            {% if data %}
+            <h3> {{ data }} </h3>
+            {% endif %}
+    
+            
+        </form>
+    </div>
 </div>
 
     {% if error %}
