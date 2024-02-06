@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from AlexBlog.views import Home, LoginUser, LogoutUser
+from AlexBlog.views import Home, LoginUser, LogoutUser, RegistroUsuarios, AgregarArticulos, VerArticulos
 #luego borrar este:
 from AlexBlog import views
 
@@ -27,6 +27,11 @@ urlpatterns = [
     path("", Home.as_view(), name = 'home'),
     path("login/", LoginUser.as_view() , name= 'login'),
     path("logout/", LogoutUser.as_view(), name= 'logout'),
-    path("registro/", views.registro, name= 'registro'),
-    path("agregarArticulos/", views.agregarArticulos, name= 'agregarArticulos'),   
+    path("registro/", RegistroUsuarios.as_view(), name= 'registro'),
+    path("agregarArticulos/", AgregarArticulos.as_view(), name= 'agregarArticulos'),   
+    path("todosArticulos/", VerArticulos.as_view(), name= 'verArticulos'), 
 ]
+
+
+#path("registro/", views.registro, name= 'registro'),
+#path("agregarArticulos/", views.agregarArticulos, name= 'agregarArticulos'),  

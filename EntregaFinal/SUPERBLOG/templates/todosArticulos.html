@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+{% block content %}
+
+
+
+<div class="container">
+
+    {% for elemento in articulos %}
+    <section class="row">
+        
+    <article class="card card-body text-center my-4">
+        <h2>{{ elemento.titulo }}</h2>
+        <h3>{{ elemento.subtitulo }}</h3>
+        <p>{{ elemento.cuerpo }}</p>
+        <img src="{{ elemento.imagen }}" alt="">
+        <h3>Autor: {{ elemento.autor}} </h3>
+        <h4>Creado: {{ elemento.fecha}}</h4>
+    </article>
+
+    </section>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

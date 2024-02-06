@@ -3,9 +3,10 @@
 <div class="row">
     <form action="" method="post" class="card card-body text-center">
         {% csrf_token %}
-   
+        
+        
         {{form.as_table}}
-
+        
         
         <input type="submit" value="Agregar" class="form-control btn btn-primary">
         

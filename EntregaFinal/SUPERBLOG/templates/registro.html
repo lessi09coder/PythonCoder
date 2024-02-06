@@ -2,7 +2,7 @@
 {% block content %}
 <div class="row">
     <div class="col-md-4 offset-md-4">
-        <form action="" method="post" class="card card-body text-center">
+        <form action="{% url 'registro' %}" method="post" class="card card-body text-center">
             <h1>Registrate!</h1>
             {% csrf_token %}
        
