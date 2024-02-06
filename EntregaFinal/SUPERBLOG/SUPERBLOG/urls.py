@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from AlexBlog.views import Home, LoginUser, LogoutUser, RegistroUsuarios, AgregarArticulos, VerArticulos
+from AlexBlog.views import Home, LoginUser, LogoutUser, RegistroUsuarios, AgregarArticulos, VerArticulos, ArticuloDetalle
 #luego borrar este:
 from AlexBlog import views
 
@@ -30,6 +30,7 @@ urlpatterns = [
     path("registro/", RegistroUsuarios.as_view(), name= 'registro'),
     path("agregarArticulos/", AgregarArticulos.as_view(), name= 'agregarArticulos'),   
     path("todosArticulos/", VerArticulos.as_view(), name= 'verArticulos'), 
+    path('todosArticulos/articulo/<int:pk>/', ArticuloDetalle.as_view(), name='articuloDetalle'),
 ]
 
 

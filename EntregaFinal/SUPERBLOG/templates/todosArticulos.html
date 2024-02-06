@@ -7,15 +7,17 @@
 
     {% for elemento in articulos %}
     <section class="row">
-        
-    <article class="card card-body text-center my-4">
-        <h2>{{ elemento.titulo }}</h2>
-        <h3>{{ elemento.subtitulo }}</h3>
-        <p>{{ elemento.cuerpo }}</p>
-        <img src="{{ elemento.imagen }}" alt="">
-        <h3>Autor: {{ elemento.autor}} </h3>
-        <h4>Creado: {{ elemento.fecha}}</h4>
-    </article>
+
+        <article class="card card-body text-center my-4">
+            <a href="{% url 'articuloDetalle' elemento.pk %}">
+                <h2>{{ elemento.titulo }}</h2>
+            </a>
+            <h3>{{ elemento.subtitulo }}</h3>
+            <p>{{ elemento.cuerpo }}</p>
+            <img src="{{ elemento.imagen }}" alt="">
+            <h3>Autor: {{ elemento.autor}} </h3>
+            <h4>Creado: {{ elemento.fecha}}</h4>
+        </article>
 
     </section>
     {% endfor %}

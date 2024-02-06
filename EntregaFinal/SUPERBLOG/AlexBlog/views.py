@@ -70,7 +70,10 @@ class VerArticulos(ListView,LoginRequiredMixin):
     ordering = ['-fecha']
     #ordering = ['-date_published']  # Opcional: ordena los artículos por fecha de publicación
 
-
+class ArticuloDetalle(DetailView):
+    model = Entrada
+    template_name = 'articuloDetalle.html'
+    context_object_name = 'articulo'
 #crear la class para ver articulos:  
    
 # @login_required
