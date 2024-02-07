@@ -1,8 +1,6 @@
 {% extends 'index.html' %}
 {% block content %}
 
-
-
 <div class="container">
 
     {% for elemento in articulos %}
@@ -14,8 +12,9 @@
             </a>
             <h3>{{ elemento.subtitulo }}</h3>
             <p>{{ elemento.cuerpo }}</p>
-            <img src="{{ elemento.imagen }}" alt="">
+            <img src="{{ elemento.imagen.url }}" alt="imagenArticulo">
             <h3>Autor: {{ elemento.autor}} </h3>
+            
             <h4>Creado: {{ elemento.fecha}}</h4>
         </article>
 

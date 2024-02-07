@@ -76,6 +76,11 @@ class ArticuloDetalle(DetailView):
     context_object_name = 'articulo'
 #crear la class para ver articulos:  
    
+
+
+class SobreMi(TemplateView):
+    template_name = 'sobreMi.html' 
+   
 # @login_required
 # este se puede borrar
 def agregarArticulos(request):

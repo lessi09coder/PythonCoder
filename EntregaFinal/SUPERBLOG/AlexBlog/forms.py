@@ -36,7 +36,7 @@ class FormularioRegistroUsuario(forms.ModelForm):
 class AgregarArticulos(forms.ModelForm):
     class Meta:
         model = Entrada
-        fields = ['titulo', 'subtitulo', 'cuerpo']
+        fields = ['titulo', 'subtitulo', 'cuerpo', 'imagen']
         
         
         #widgets = {'autor': forms.TextInput(attrs={'class': 'form-control', 'value': '' , })}

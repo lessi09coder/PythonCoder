@@ -12,7 +12,7 @@
         <h2>{{ articulo.titulo }}</h2>
         <h3>{{ articulo.subtitulo }}</h3>
         <p>{{ articulo.cuerpo }}</p>
-        <img src="{{ articulo.imagen }}" alt="">
+        <img src="{{ articulo.imagen.url }}" class="img-fluid" alt="imagenArticulo">
         <h3>Autor: {{ articulo.autor}} </h3>
         <h4>Creado: {{ articulo.fecha}}</h4>
     </article>
