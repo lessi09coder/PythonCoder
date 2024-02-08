@@ -20,6 +20,7 @@ from AlexBlog.views import (
 from AlexBlog import views
 
 
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", Home.as_view(), name="home"),
@@ -38,3 +39,5 @@ urlpatterns = [
     path("todosArticulos/articulo/borrarArticulo/<int:pk>/", BorrarArticulo.as_view(), name="borrarArticulo"), 
     path("about/", SobreMi.as_view(), name="sobreMi"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = 'AlexBlog.views.error_404'

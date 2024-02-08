@@ -119,3 +119,9 @@ class BorrarArticulo(LoginRequiredMixin, DeleteView):
     
 class SobreMi(TemplateView):
     template_name = 'sobreMi.html' 
+
+
+
+
+def error_404(request, exception):
+    return render(request, '404.html', {})
