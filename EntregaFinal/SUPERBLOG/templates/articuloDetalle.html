@@ -15,6 +15,10 @@
         <img src="{{ articulo.imagen.url }}" class="img-fluid" alt="imagenArticulo">
         <h3>Autor: {{ articulo.autor}} </h3>
         <h4>Creado: {{ articulo.fecha}}</h4>
+
+        <a href="{% url 'editarArticulo' articulo.pk %}">
+            <h2>Editar articulo</h2>
+        </a>
     </article>
 
     </section>

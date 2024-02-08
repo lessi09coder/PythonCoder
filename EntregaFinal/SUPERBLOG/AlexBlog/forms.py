@@ -1,5 +1,5 @@
-from django import forms
-#from django.forms import ModelForm
+from django import forms            
+from django.contrib.auth.forms import UserChangeForm
 from django.contrib.auth.models import User
 from AlexBlog.models import Entrada
 
@@ -34,6 +34,7 @@ class FormularioRegistroUsuario(forms.ModelForm):
       
     
 class AgregarArticulos(forms.ModelForm):
+    
     class Meta:
         model = Entrada
         fields = ['titulo', 'subtitulo', 'cuerpo', 'imagen']
@@ -43,8 +44,14 @@ class AgregarArticulos(forms.ModelForm):
         #autor viene del model    y falta imagen    
     
     
-    
-    """  titulo = forms.CharField(max_length=50,label='Titulo')
-    subtitulo = forms.CharField(max_length=50,label='Subtitulo')
-    cuerpo = forms.CharField(max_length=400, label='Escriba aquí su articulo')
-    imagen = forms.URLField(label='Imagen a mostrar')      """  
+class FormularioEdicionUsuario(UserChangeForm):
+    password = None
+    class Meta:
+        model = User
+        fields = ('email', 'first_name', 'last_name')
+        
+        
+class FormularioEdicionArticulo(forms.ModelForm):
+    class Meta:
+        model = Entrada 
+        fields = ('titulo','subtitulo','cuerpo','imagen')

@@ -24,9 +24,11 @@ from AlexBlog.views import (
     LoginUser,
     LogoutUser,
     RegistroUsuarios,
+    EditarUsuario,
     AgregarArticulos,
     VerArticulos,
     ArticuloDetalle,
+    EditarArticulo,
     SobreMi,
 )
 
@@ -40,6 +42,7 @@ urlpatterns = [
     path("login/", LoginUser.as_view(), name="login"),
     path("logout/", LogoutUser.as_view(), name="logout"),
     path("registro/", RegistroUsuarios.as_view(), name="registro"),
+    path("editarUsuario/", EditarUsuario.as_view(), name="editarUsuario"),    
     path("agregarArticulos/", AgregarArticulos.as_view(), name="agregarArticulos"),
     path("todosArticulos/", VerArticulos.as_view(), name="verArticulos"),
     path(
@@ -47,9 +50,6 @@ urlpatterns = [
         ArticuloDetalle.as_view(),
         name="articuloDetalle",
     ),
+    path("todosArticulos/articulo/editarArticulo/<int:pk>/", EditarArticulo.as_view(), name="editarArticulo"),    
     path("about/", SobreMi.as_view(), name="sobreMi"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
-# path("registro/", views.registro, name= 'registro'),
-# path("agregarArticulos/", views.agregarArticulos, name= 'agregarArticulos'),

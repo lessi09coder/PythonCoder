@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <form method="post" enctype="multipart/form-data" class="card card-body text-center">
+            <h1>Quieres editar tu articulo?</h1>
+
+            {% csrf_token %}
+            {{form.as_table}}
+
+            
+            <input type="submit" value="Guardar cambios." class="form-control btn btn-primary">
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}
