@@ -29,6 +29,7 @@ from AlexBlog.views import (
     VerArticulos,
     ArticuloDetalle,
     EditarArticulo,
+    BorrarArticulo,
     SobreMi,
 )
 
@@ -51,5 +52,6 @@ urlpatterns = [
         name="articuloDetalle",
     ),
     path("todosArticulos/articulo/editarArticulo/<int:pk>/", EditarArticulo.as_view(), name="editarArticulo"),    
+    path("todosArticulos/articulo/borrarArticulo/<int:pk>/", BorrarArticulo.as_view(), name="borrarArticulo"), 
     path("about/", SobreMi.as_view(), name="sobreMi"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

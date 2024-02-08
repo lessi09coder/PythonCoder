@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, ListView, UpdateView
+from django.views.generic import TemplateView, ListView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
 from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView
@@ -95,7 +95,16 @@ class EditarArticulo(UpdateView, LoginRequiredMixin):
     def get_success_url(self):
         return reverse_lazy("verArticulos")    
 
-# class BorrarArticulo(LoginRequiredMixin, DeleteView):
+class BorrarArticulo(LoginRequiredMixin, DeleteView):
+    model = Entrada
+    template_name = 'borrarArticulo.html'  
+     
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.filter(autor=self.request.user)
+    def get_success_url(self):
+        return reverse_lazy("verArticulos")  
+    
 class SobreMi(TemplateView):
     template_name = 'sobreMi.html' 
