@@ -47,7 +47,7 @@ urlpatterns = [
         ArticuloDetalle.as_view(),
         name="articuloDetalle",
     ),
-    path("about/", SobreMi.as_view(), name="SobreMi"),
+    path("about/", SobreMi.as_view(), name="sobreMi"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

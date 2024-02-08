@@ -6,7 +6,15 @@
     <meta charset="UTF-8">
     <title>AlexBlog</title>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
-   
+    <style>
+        /* Estilos personalizados para el efecto de zoom */
+        .navbar-nav .nav-link {
+            transition: transform 0.3s ease; /* Transición suave */
+        }
+        .navbar-nav .nav-link:hover {
+            transform: scale(1.1); /* Zoom al pasar el puntero */
+        }
+    </style>
 </head>
 
 <body>
@@ -28,14 +36,14 @@
                             <a class="nav-link" href="{% url 'registro' %}">Registro</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/about/">Sobre mi</a>
+                            <a class="nav-link" href="{% url 'sobreMi' %}">Sobre mi</a>
                         </li>                            
                         {% if user.is_authenticated%}
                         <li class="nav-item">
-                            <a class="nav-link" href="/todosArticulos/">Articulos</a>
+                            <a class="nav-link" href="{% url 'verArticulos' %}">Articulos</a>
                         </li>  
                         <li class="nav-item">
-                            <a class="nav-link" href="/agregarArticulos/" >Agregar articulo</a>
+                            <a class="nav-link" href="{% url 'AgregarArticulos' %}" >Agregar articulo</a>
                         </li>
                         <li class="nav-item">
                             <form method="post" action="{% url 'logout' %}">
@@ -67,7 +75,7 @@
                 <div class="col-md-8 offset-md-2">
                     <h1 class="text-center">¡Bienvenido a Mi Blog!</h1>
                     <p class="lead text-center">Aquí puedes compartir tus ideas, experiencias y conocimientos sobre temas de interés.</p>
-                    <p class="text-center">¿Tienes algo interesante para compartir? ¡Publica tu primer artículo ahora!</p>                    
+                    <p class="text-center">¿Tienes algo interesante para compartir? ¡Publicá tu primer artículo ahora!</p>                    
                 </div>
             </div>
         </div>
