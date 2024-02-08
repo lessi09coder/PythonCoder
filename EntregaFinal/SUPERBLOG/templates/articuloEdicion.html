@@ -1,6 +1,8 @@
 {% extends 'index.html' %}
 {% block content %}
 
+{% if user.id == contexto.autor.id %}
+
 <div class="row">
     <div class="col-md-4 offset-md-4">
         <form method="post" enctype="multipart/form-data" class="card card-body text-center">
@@ -15,5 +17,10 @@
         </form>
     </div>
 </div>
+{% else %}
+<div class="container">
+    <H1>NO TENES PERMISO DE EDICION</H1>
+</div>
 
+{% endif %}
 {% endblock %}

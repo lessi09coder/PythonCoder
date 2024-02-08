@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views.generic import TemplateView, ListView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView
@@ -39,6 +39,7 @@ class RegistroUsuarios(CreateView):
 class EditarUsuario(LoginRequiredMixin,UpdateView):
     form_class = FormularioEdicionUsuario
     template_name= 'editarUsuario.html'
+    
     
     def get_object(self):
         return self.request.user
@@ -88,10 +89,20 @@ class EditarArticulo(UpdateView, LoginRequiredMixin):
     model = Entrada
     form_class = FormularioEdicionArticulo
     template_name= 'articuloEdicion.html'    
-
+    context_object_name = 'contexto'    
+    
     def get_queryset(self):
         queryset = super().get_queryset()
-        return queryset.filter(autor=self.request.user) 
+        return queryset.filter(autor=self.request.user)
+    
+    def get_object(self, queryset=None):
+        # Obtener el objeto del artículo
+        obj = super().get_object(queryset=queryset)
+        # Comprobar si el usuario es el autor del artículo
+        if obj.autor != self.request.user:
+            raise Http404("No tienes permiso para eliminar este artículo.")
+        return obj   
+    
     def get_success_url(self):
         return reverse_lazy("verArticulos")    
 
