@@ -3,18 +3,18 @@
 <div class="row">
     <section class="col-md-4 offset-md-4">
         <form method="POST" action="{% url 'login' %}" class="card card-body">
-            {% csrf_token %}           
+            {% csrf_token %}
 
             {{form.as_table}}
 
             <input type="submit" value="login" class="form-control btn btn-primary mt-1">
-    
+
             <p>No tienes usuario? Registro <a href="{% url 'registro' %}"> aqui! </a></p>
             {% if data %}
             <h3> {{ data }} </h3>
             {% endif %}
         </form>
     </section>
-    
+
 </div>
 {% endblock %}

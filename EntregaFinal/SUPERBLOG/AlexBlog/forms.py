@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from AlexBlog.models import Entrada
 
 
-#es forms.ModelForm? o es UserCreationForm
 class FormularioRegistroUsuario(forms.ModelForm):
     username = forms.CharField()
     email = forms.EmailField()
@@ -29,8 +28,7 @@ class FormularioRegistroUsuario(forms.ModelForm):
         if commit:
             user.set_password(self.cleaned_data['password2'])
             user.save()
-        return user
-    
+        return user    
       
     
 class AgregarArticulos(forms.ModelForm):
@@ -38,10 +36,6 @@ class AgregarArticulos(forms.ModelForm):
     class Meta:
         model = Entrada
         fields = ['titulo', 'subtitulo', 'cuerpo', 'imagen']
-        
-        
-        #widgets = {'autor': forms.TextInput(attrs={'class': 'form-control', 'value': '' , })}
-        #autor viene del model    y falta imagen    
     
     
 class FormularioEdicionUsuario(UserChangeForm):

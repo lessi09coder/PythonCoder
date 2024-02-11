@@ -21,14 +21,6 @@ from django.contrib.auth import authenticate, login, logout
 class Home(TemplateView):
     template_name = "index.html"
 
-
-# @login_required
-""" def home(request):
-    articulos = Entrada.objects.all()
-    return render(request, "index.html", {"articulos": articulos})
-     """
-
-
 class RegistroUsuarios(CreateView):
     form_class = FormularioRegistroUsuario
     template_name = "registro.html"
@@ -51,9 +43,7 @@ class EditarUsuario(LoginRequiredMixin,UpdateView):
 class LoginUser(LoginView):
     template_name = "login.html"
     fields = "__all__"
-    # redirect_autheticated_user = True
-    # success_url = reverse_lazy('home')
-
+    
     def get_success_url(self):
         return reverse_lazy("home")
 
