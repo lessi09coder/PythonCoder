@@ -26,6 +26,11 @@ Para ejecutar el proyecto localmente, sigue estos pasos:
 3. Instala las dependencias del proyecto utilizando el siguiente comando:
 
     ```
+    Se recomienda crear un ENTORNO VIRTUAL * escribir en la termianal Powershell:
+    virtualenv -p python3 env
+
+    Para instalar los requerimientos:
+    
     pip install -r requirements.txt
     ```
 
