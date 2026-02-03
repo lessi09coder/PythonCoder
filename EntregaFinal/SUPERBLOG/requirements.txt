@@ -1,7 +1,11 @@
 asgiref==3.7.2
 beautifulsoup4==4.12.3
 Django==5.0.1
+<<<<<<< HEAD
 pillow==12.1.0
+=======
+pillow==12.1.0 #la version original era 10.2.0 pero da error
+>>>>>>> 1fa81177fa391e834f2898b5e662d2454c69213c
 soupsieve==2.5
 sqlparse==0.4.4
 tzdata==2023.4
